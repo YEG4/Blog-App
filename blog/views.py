@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import *
 from django.urls import reverse_lazy
+from django.contrib.auth import views
 # Create your views here.
 
 class BlogListView(ListView):
@@ -27,3 +28,6 @@ class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('home')
+
+# class BlogLogoutView(views.LogoutView):
+#     next_page = reverse('home')
